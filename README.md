@@ -8,7 +8,7 @@ This Github repository complements our research on embedded uniqueness contraint
 In particular, this repository is comprised of the following:
 
 - source code (written in Python) that outlines how experiments on synthetic datasets have been conducted
-- images illustrating the experiment settings
+- images illustrating the experiments on graph datasets
 - dump files (Neo4j format) containing the real world datasets used to conduct experiments
 - files and instructions on how to replicate experiments
 
