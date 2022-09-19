@@ -1,5 +1,4 @@
-# !!!!!!!!!!!!!!!!!!! CHANGE: Title of paper
-
+# Towards the Logical Design of Property Graphs (!!!!!!!!! Check if Title changed)
 
 ## Introduction:
 
