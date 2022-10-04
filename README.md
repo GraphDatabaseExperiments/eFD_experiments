@@ -1,4 +1,4 @@
-# Towards the Logical Design of Property Graphs (!!!!!!!!! Check if Title changed)
+# Normalizing Graph Data (!!!!!!!!! Check if Title changed)
 
 ## Introduction:
 
