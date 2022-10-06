@@ -8,7 +8,7 @@ In particular, this repository is comprised of the following:
 
 - source code (written in Python) that outlines how experiments on synthetic datasets have been conducted
 - images illustrating the experiments on graph datasets
-- dump files (Neo4j format) containing the real world datasets used to conduct experiments
+- links to dump files (Neo4j format) containing the real world datasets used to conduct experiments
 - files and instructions on how to replicate experiments
 
 
@@ -17,8 +17,11 @@ In particular, this repository is comprised of the following:
 
 What software, files, etc needed to perform experiments
 
+The software used to perform the experiments carried out in our research are:
 
+- Neo4j Desktop 1.5.0
 
+- Python 3.x
 
 
 
