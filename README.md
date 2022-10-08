@@ -37,11 +37,17 @@ Explain experiments on synthetic dataset
 
 ### 2. Northwind graph dataset
 
+This dataset contains information on customers and the order they made.
+
+Nodes:
+Edges:
+
 Explain experiments
 
 
 ### 2. Offshore leaks graph dataset
 
+This dataset contains information on companies worldwide.
 
 Explain experiments
 
