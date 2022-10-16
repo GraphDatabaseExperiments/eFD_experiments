@@ -1,8 +1,8 @@
-# Normalizing Graph Data (!!!!!!!!! Check if title changed)
+# Normalizing Graph Data
 
 ## Introduction:
 
-This Github repository complements our research on embedded uniqueness contraints (eUC) and embedded functional dependencies (eFD) for property graphs.
+This Github repository complements our research on property graph normalization with graph-tailored uniqueness contraints (gUC) and graph-tailored functional dependencies (gFD) as foundation.
 
 In particular, this repository is comprised of the following:
 
