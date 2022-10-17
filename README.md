@@ -58,6 +58,7 @@ Detailed information on the results of these experiments and instructions on how
 
 ### 1.)
 
+In these experiments we mined the gFDs L:P:X -> Y present in the datasets and listed them with information on the additional properties P\XY in the embedding P, the properties on the left hand side X as well as the right hand side Y. In addition, we gave insight into the redundancy they cause as well as the maximum inconsistency each gFD exhibits. 
 
 
 Fill this section with overview on experiments
