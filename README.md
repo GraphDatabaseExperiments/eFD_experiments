@@ -76,9 +76,9 @@ To illustrate what graph normalization looks like we used three different proper
 
 The benefits of normalization become obvious when updating properties on the right hand side of gFDs L:P:X -> Y with many redundant property occurences. To highlight how integrity management improves through normalization of property graphs we executed update queries on instances of the original property graph in our datasets and the corresponding queries on the normalized instances of these graphs where the gFD has been transormed into the gUC L:XY:X. In our experiments we performed update queries for property values that present minimal, average and maximum inconsistency. In addition we performed these queries on the original and normalized instances each time with and without an index on the property set X. 
 
-### 6.)
+### 6.) How do aggregate queries improve?
 
-Fill
+To show how the performance of aggregate queries improves through the proposed normalization approach we conducted the following experiments. We performed aggregate queries on the original graphs in our datasets and the resulting normalized graph and compared their performance each time with and without and index on the property set X.
 
 ### 7.)
 
