@@ -45,13 +45,27 @@ The real world graph datasets (Northwind and Offshore Leaks) provided as dump fi
 
 The experiments in our research on gFDs/gUCs and graph databse normalization are subsummed in the following sections providing answers to the corresponding questions:
 
-- What gFDs do graphs exhibit?
-- What gFDs cause much data redundancy?
-- How much inconsistency can gFDs avoid?
-- What does graph normalization look like?
-- How does integrity management improve?
-- How do aggregate queries improve?
-- How do benefits of normalization scale?
+- 1.) What gFDs do graphs exhibit?
+- 2.) What gFDs cause much data redundancy?
+- 3.) How much inconsistency can gFDs avoid?
+- 4.) What does graph normalization look like?
+- 5.) How does integrity management improve?
+- 6.) How do aggregate queries improve?
+- 7.) How do benefits of normalization scale?
+
+
+Detailed information on the results of these experiments and instructions on how to replicate them can be found in this repository in the experiments folder. In what follows we like to provide an overview on the different experiments.
+
+### 1.)
+
+
+
+Fill this section with overview on experiments
+
+
+--------------------
+
+Get rid of what is below
 
 
 Which experiments have been conducted, enumerate and refer to files to replicate them.
