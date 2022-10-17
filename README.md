@@ -56,15 +56,15 @@ The experiments in our research on gFDs/gUCs and graph databse normalization are
 
 Detailed information on the results of these experiments and instructions on how to replicate them can be found in this repository in the experiments folder. In what follows we like to provide an overview on the different experiments.
 
-### 1.)
+### 1.) What gFDs do graphs exhibit?
 
 In these experiments we mined the gFDs L:P:X -> Y present in the datasets and listed them with information on the additional properties P\XY in the embedding P, the properties on the left hand side X as well as the right hand side Y. In addition, we gave insight into the redundancy they cause as well as the maximum inconsistency each gFD exhibits.
 
-### 2.)
+### 2.) What gFDs cause much data redundancy?
 
-Fill
+In the context of normalization an important goal is to minimize redundancy and in order to achieve this we are interested in gFDs that cause high levels of redundancy. For our experiments we ordered gFDs in the datasets with respect to the redundancy they cause and further analyzed those that appar to be meaningful.
 
-### 3.)
+### 3.) How much inconsistency can gFDs avoid?
 
 Fill
 
