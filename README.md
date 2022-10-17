@@ -6,22 +6,38 @@ This Github repository complements our research on property graph normalization 
 
 In particular, this repository is comprised of the following:
 
+- experiment results on synthetic and real world datasets
+- links to dump files (Neo4j format) containing the real world datasets used to conduct experiments
 - source code (written in Python) that outlines how experiments on synthetic datasets have been conducted
 - images illustrating the experiments on graph datasets
-- links to dump files (Neo4j format) containing the real world datasets used to conduct experiments
 - files and instructions on how to replicate experiments
 
 
 
 ## Preliminaries:
 
-What software, files, etc needed to perform experiments
-
 The software used to perform the experiments carried out in our research are:
 
 - Neo4j Desktop 1.5.0
 
-- Python 3.x
+- Neo4j Browser 5.0.0
+
+- Neo4j Python Driver 5.1.0
+
+- Python 3.9.13
+
+
+The real world graph datasets (Northwind and Offshore Leaks) provided as dump files for import in Neo4j that we use in our experiments can be found in the following Github repositories:
+
+
+- https://github.com/neo4j-graph-examples/northwind/blob/main/data/northwind-43.dump
+
+- https://github.com/ICIJ/offshoreleaks-data-packages/blob/main/data/icij-offshoreleaks-42.dump
+
+
+
+
+
 
 
 
