@@ -68,9 +68,9 @@ In the context of normalization an important goal is to minimize redundancy and 
 
 In order to determine how much inconsistency gFDs avoid we investigated gFDs causing high redundancy and used the following approach in our experiments. While these gFDs L:P:X -> Y are satisfied there appear to be gFDs that are meaningful and might represent business rules that are violated, but by adding properties to P or X these result in gFDs that are among those that are satisfied and cause many occurences of redundant property values. Here we could interpret the additional properties to add to X or P to transform a violated gFD into one that is satisfied as a filter with respect to nodes carrying dirty data. Further analysis of these nodes that cause the violations gives insight into whether these gFDs don't represent business rules or if these are sources of inconsistency.   
 
-### 4.)
+### 4.) What does graph normalization look like?
 
-Fill
+To illustrate what graph normalization looks like we used three different property sets P1, P2 as well as their union (denoted by P3) and looked at the gFDs that hold with respect to a given label set L and each of these property sets Pi. Next, we transformed each time the set of gFDs that cause high redundancy into gUCs that avoid redundancy. This approach garantees the set of constraints to be in L:Pi:BCNF with all redundancy eliminated. In our experiments we performed the proposed graph transformations and meassured the amount of database hits and time required.
 
 ### 5.)
 
