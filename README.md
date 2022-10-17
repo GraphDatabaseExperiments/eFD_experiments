@@ -72,9 +72,9 @@ In order to determine how much inconsistency gFDs avoid we investigated gFDs cau
 
 To illustrate what graph normalization looks like we used three different property sets P1, P2 as well as their union (denoted by P3) and looked at the gFDs that hold with respect to a given label set L and each of these property sets Pi. Next, we transformed each time the set of gFDs that cause high redundancy into gUCs that avoid redundancy. This approach garantees the set of constraints to be in L:Pi:BCNF with all redundancy eliminated. In our experiments we performed the proposed graph transformations and meassured the amount of database hits and time required.
 
-### 5.)
+### 5.) How does integrity management improve?
 
-Fill
+The benefits of normalization become obvious when updating properties on the right hand side of gFDs L:P:X -> Y with many redundant property occurences. To highlight how integrity management improves through normalization of property graphs we executed update queries on instances of the original property graph in our datasets and the corresponding queries on the normalized instances of these graphs where the gFD has been transormed into the gUC L:XY:X. In our experiments we performed update queries for property values that present minimal, average and maximum inconsistency. In addition we performed these queries on the original and normalized instances each time with and without an index on the property set X. 
 
 ### 6.)
 
