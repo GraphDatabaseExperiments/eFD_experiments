@@ -66,7 +66,7 @@ In the context of normalization an important goal is to minimize redundancy and 
 
 ### 3.) How much inconsistency can gFDs avoid?
 
-Fill
+In order to determine how much inconsistency gFDs avoid we investigated gFDs causing high redundancy and used the following approach in our experiments. While these gFDs L:P:X -> Y are satisfied there appear to be gFDs that are meaningful and might represent business rules that are violated, but by adding properties to P or X these result in gFDs that are among those that are satisfied and cause many occurences of redundant property values. Here we could interpret the additional properties to add to X or P to transform a violated gFD into one that is satisfied as a filter with respect to nodes carrying dirty data. Further analysis of these nodes that cause the violations gives insight into whether these gFDs don't represent business rules or if these are sources of inconsistency.   
 
 ### 4.)
 
