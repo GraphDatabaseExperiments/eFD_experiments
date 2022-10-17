@@ -80,10 +80,9 @@ The benefits of normalization become obvious when updating properties on the rig
 
 To show how the performance of aggregate queries improves through the proposed normalization approach we conducted the following experiments. We performed aggregate queries on the original graphs in our datasets and the resulting normalized graph and compared their performance each time with and without and index on the property set X.
 
-### 7.)
+### 7.) How do benefits of normalization scale?
 
-Fill
-
+To answer the question of how the benefits of normalization scale we conducted experiments on synthetic datasets. Here we looked at proptery graphs that exhibit a gFD that is satisfied. By increasing the amount of nodes by a given factor we scaled these graphs and analyzed each time the original graph as well as the normalized counterpart. In each experiment we performed queries to validate that the given gFD holds in the original graph and that the resulting gUC is satisfied in the corresponding normalized graph. In addtion, we performed these queries where we changed parameters such as the label set L, the size of the embedding P and the ratio of P-complete nodes. Moreover, we analyzed how the performance of update and aggreation queries scales. 
 
 
 
