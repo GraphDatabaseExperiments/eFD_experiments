@@ -43,6 +43,17 @@ The real world graph datasets (Northwind and Offshore Leaks) provided as dump fi
 
 ## Experiments:
 
+The experiments in our research on gFDs/gUCs and graph databse normalization are subsummed in the following sections providing answers to the corresponding questions:
+
+- What gFDs do graphs exhibit?
+- What gFDs cause much data redundancy?
+- How much inconsistency can gFDs avoid?
+- What does graph normalization look like?
+- How does integrity management improve?
+- How do aggregate queries improve?
+- How do benefits of normalization scale?
+
+
 Which experiments have been conducted, enumerate and refer to files to replicate them.
 
 ### 1. Experiments on synthetic graph dataset
