@@ -1,0 +1,172 @@
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID)
+WITH e.countries AS countries, e.jurisdiction_description AS description, COUNT(DISTINCT(e.country_codes)) AS amount WHERE amount > 1
+RETURN countries, description, amount
+
+
+
+
+Normalising:
+
+Create R1 nodes
+
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID)
+WITH DISTINCT e.country_codes AS codes, e.valid_until AS valid, e.countries AS countries
+CREATE (r:R1{country_codes: codes, valid_until: valid, countries: countries})
+
+db hits: 4555098
+
+MS: 2207
+
+
+Create R2 nodes
+
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID)
+WITH DISTINCT e.country_codes AS codes, e.sourceID AS ids, e.countries AS countries
+CREATE (r:R2{country_codes: codes, sourceID: ids, countries: countries})
+
+db hits: 4554984
+
+MS: 1600
+
+
+Create R3 nodes
+
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID)
+WITH DISTINCT e.jurisdiction_description AS description, e.countries AS countries, e.country_codes AS codes
+CREATE (r:R3{jurisdiction_description: description, countries: countries, country_codes: codes})
+
+
+db hits: 4560206
+
+MS: 1460
+
+
+
+Create relationships and remove properties from entity vertices at the end
+
+MATCH (e:Entity), (r:R1)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND
+e.countries = r.countries AND
+e.country_codes = r.country_codes AND
+e.valid_until = r.valid_until
+CREATE (e)-[:R1_EDGE]->(r)
+
+
+db hits: 5057178
+
+MS: 4990
+
+
+MATCH (e:Entity), (r:R2)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND
+e.countries = r.countries AND
+e.country_codes = r.country_codes AND
+e.sourceID = r.sourceID
+CREATE (e)-[:R2_EDGE]->(r)
+
+db hits: 5057096
+
+MS: 3291
+
+
+MATCH (e:Entity), (r:R3)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND
+e.countries = r.countries AND
+e.country_codes = r.country_codes AND
+e.jurisdiction_description = r.jurisdiction_description
+CREATE (e)-[:R3_EDGE]->(r)
+
+db hits: 5060826
+
+MS: 3881
+
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID)
+REMOVE e.countries, e.country_codes, e.jurisdiction_description, e.valid_until, e.sourceID
+
+
+db hits: 9594800
+
+MS: 5268
+
+----------------
+
+
+
+
+
+
+
+
+How much redundancy saved by normalising (perform query on denormalised graph):
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.countries AS countries, e.jurisdiction_description AS description , COUNT(e.country_codes) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.countries AS countries, e.sourceID AS ids, COUNT(e.country_codes) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.countries AS countries, e.valid_until AS valid, COUNT(e.country_codes) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+
+
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.country_codes AS codes, e.sourceID AS ids, COUNT(e.countries) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.country_codes AS codes, e.valid_until AS valid, COUNT(e.countries) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+
+For two overlapping gFDs: count redundancy of gfD A + red of B - intersection by having each time 2 properties after with and for intersection 3 for example
+
+For three overlapping: A + B + C - (A cut B) - (A cut C) - (B cut C) + (A cut B cut C) with 2, then 3 and then 4 properties after WITH
+
