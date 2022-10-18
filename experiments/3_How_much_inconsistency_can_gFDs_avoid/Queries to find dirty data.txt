@@ -1,0 +1,26 @@
+MATCH (e:Entity) WHERE e.country_codes = 'COK' RETURN e.country_codes, e.countries
+
+All entities have country_codes 'COK'
+
+464 entities have countries 'Cook Islands'
+1389 entities have countries 'COK'
+
+
+
+
+MATCH (e:Entity) WHERE e.country_codes = 'GBR;VGB' RETURN e.country_codes, e.countries
+
+All entities have country_codes 'GBR;VGB'
+
+2780 entities have countries 'United Kingdom;British Virgin Islands'
+1 entity has countries 'United Kingdom;Virgin Islands, British'
+
+
+
+
+MATCH (e:Entity) WHERE e.country_codes = 'VGB;COK' RETURN e.country_codes, e.countries
+
+All entities have country_codes 'VGB;COK'
+
+4 entities have countries 'British Virgin Islands;Cook Islands'
+75 entities have countries 'Virgin Islands, British;Cook Islands'
