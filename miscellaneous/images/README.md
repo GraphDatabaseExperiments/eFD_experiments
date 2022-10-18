@@ -1,3 +1,3 @@
-# Miscellaneous
+# Images
 
-This folder contains various additional files associated with the experiments carried out in our research.
+This folder contains various images that illustrate the experiments we conducted.
