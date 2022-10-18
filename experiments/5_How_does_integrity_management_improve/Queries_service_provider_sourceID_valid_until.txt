@@ -1,0 +1,155 @@
+eFD with 344,086 redundancy
+
+{service_provider, sourceID, valid_until}:{service_provider} -> {sourceID, valid_until}
+
+
+
+Validation of eFD
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until)
+WITH e.service_provider AS provider, COUNT(DISTINCT(e.sourceID)) AS dist1, COUNT(DISTINCT(e.valid_until)) AS dist2 WHERE dist1 > 1 OR dist2 > 1
+RETURN provider, dist1, dist2
+
+
+---------------
+
+
+
+Normalising:
+
+Create provider vertices
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until)
+WITH DISTINCT e.service_provider AS provider, e.sourceID AS ids, e.valid_until AS valid
+CREATE (p:Provider{service_provider: provider, sourceID: ids, valid_until: valid})
+
+
+
+Create relationships and remove properties from entity vertices
+
+MATCH (e:Entity),(p:Provider) WHERE
+EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until) AND
+e.service_provider = p.service_provider
+CREATE (e)-[:PROVIDED_BY]->(p)
+REMOVE e.service_provider, e.sourceID, e.valid_until
+
+
+
+
+---------------
+
+Aggregate query denormalised
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until)
+WITH e.service_provider AS provider, COUNT(*) AS amount
+RETURN min(amount), max(amount), avg(amount)
+
+
+---------------
+
+Aggregate query normalised
+
+MATCH (p:Provider)
+WITH SIZE((p)--()) AS amount
+RETURN min(amount), max(amount), avg(amount)
+
+
+
+
+
+----------------
+
+Update (max) denormalised
+
+
+
+MATCH (e:Entity)
+WHERE EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until)
+AND e.service_provider = 'Mossack Fonseca'
+SET e.valid_until = 'The Panama Papers data is current through 2016'
+
+
+----------------
+
+Update (max) normalised
+
+
+MATCH (p:Provider)
+WHERE EXISTS(p.service_provider) AND EXISTS(p.sourceID) AND EXISTS(p.valid_until)
+AND p.service_provider = 'Mossack Fonseca'
+SET p.valid_until = 'The Panama Papers data is current through 2015'
+
+
+
+----------------
+
+Update (avg) denormalised
+
+
+MATCH (e:Entity)
+WHERE EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until)
+AND e.service_provider = 'Portcullis Trustnet'
+SET e.valid_until = 'The Offshore Leaks data is current through 2011'
+
+
+----------------
+
+Update (avg) normalised
+
+MATCH (p:Provider)
+WHERE EXISTS(p.service_provider) AND EXISTS(p.sourceID) AND EXISTS(p.valid_until)
+AND p.service_provider = 'Portcullis Trustnet'
+SET p.valid_until = 'The Offshore Leaks data is current through 2011'
+
+
+
+
+----------------
+
+Update (min) denormalised
+
+MATCH (e:Entity)
+WHERE EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until)
+AND e.service_provider = 'Appleby'
+SET e.valid_until = 'Appleby data is current through 2015'
+
+----------------
+
+Update (min) normalised
+
+
+MATCH (p:Provider)
+WHERE EXISTS(p.service_provider) AND EXISTS(p.sourceID) AND EXISTS(p.valid_until)
+AND p.service_provider = 'Appleby'
+SET p.valid_until = 'Appleby data is current through 2015'
+
+
+
+----------------
+
+-----------------
+
+Validation of eUC
+
+
+MATCH (p:Provider) WHERE
+EXISTS(p.service_provider) AND EXISTS(p.sourceID) AND EXISTS(p.valid_until)
+WITH p.service_provider AS provider, COUNT(p) AS dist WHERE dist > 1
+RETURN provider, dist
+
+
+-----------------
+
+Count redundancy
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until)
+WITH e.service_provider AS prov, COUNT(e.sourceID) AS dist1, COUNT(e.valid_until) AS dist2 WHERE dist1 > 1 OR dist2 > 1
+RETURN SUM(dist1)
