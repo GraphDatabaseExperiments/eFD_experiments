@@ -35,10 +35,7 @@ The real world graph datasets (Northwind and Offshore Leaks) provided as dump fi
 - https://github.com/ICIJ/offshoreleaks-data-packages/blob/main/data/icij-offshoreleaks-42.dump
 
 
-
-
-
-
+To reproduce the experiments in our research the user will need to download the dump files for the datasets used and obtain the software as outlined above which is available for free through official websites. For detailed instructions on how to reproduce the experiment results on synthetic and real world datasets we refer to the experiments folder in this repository.
 
 
 ## Experiments:
