@@ -13,4 +13,4 @@ WITH e.jurisdiction_description AS description, COUNT(DISTINCT(e.jurisdiction)) 
 RETURN description, dist
 ```
 
-shows  
+confirms that the gFD 'Entity':'jurisdiction_description' -> 'jurisdiction' is violated and provides insight into how many distinct values of 'jurisdiction' exist for the same value of the property 'jurisdiction_description'.
