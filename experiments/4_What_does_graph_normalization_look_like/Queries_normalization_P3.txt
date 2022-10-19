@@ -1,0 +1,255 @@
+Validation of gFDs (for other gFDs change properties in line 3)
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider)
+WITH e.countries AS countries, e.jurisdiction_description AS description, COUNT(DISTINCT(e.country_codes)) AS amount WHERE amount > 1
+RETURN countries, description, amount
+
+
+
+
+Normalization:
+
+Create R1 nodes
+
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider)
+WITH DISTINCT e.country_codes AS codes, e.countries AS countries
+CREATE (r:R1{country_codes: codes, countries: countries})
+
+
+DB HITS: 3781793
+
+MS: 1718
+
+
+Create R2 nodes
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider)
+WITH DISTINCT e.service_provider AS provider, e.sourceID AS ids
+CREATE (r:R2{service_provider: provider, sourceID: ids})
+
+DB HITS: 3777523
+
+MS: 1217
+
+Create R3 nodes
+
+
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider)
+WITH DISTINCT e.service_provider AS provider, e.valid_until AS valid
+CREATE (r:R3{service_provider: provider, valid_until: valid})
+
+
+DB HITS: 3774545
+
+MS: 1024
+
+
+Create R4 nodes
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider)
+WITH DISTINCT e.valid_until AS valid, e.sourceID AS ids
+CREATE (r:R4{valid_until: valid, sourceID: ids})
+
+
+DB HITS: 3774540
+
+MS: 1034
+
+
+
+Create edges and remove properties from entity nodes at the end
+
+MATCH (e:Entity), (r:R1)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider) AND
+e.countries = r.countries AND
+e.country_codes = r.country_codes
+CREATE (e)<-[:R1_EDGE]-(r)
+
+
+DB HITS: 4122675
+
+MS: 2678
+
+
+
+MATCH (e:Entity), (r:R2)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider) AND
+e.service_provider = r.service_provider AND
+e.sourceID = r.sourceID
+CREATE (e)<-[:R2_EDGE]-(r)
+
+
+DB HITS: 4120113
+
+MS: 1686
+
+
+
+MATCH (e:Entity), (r:R3)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider) AND
+e.service_provider = r.service_provider AND
+e.valid_until = r.valid_until
+CREATE (e)<-[:R3_EDGE]-(r)
+
+
+DB HITS: 4117135
+
+MS: 2001
+
+
+
+MATCH (e:Entity), (r:R4)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider) AND
+e.sourceID = r.sourceID AND
+e.valid_until = r.valid_until
+CREATE (e)<-[:R4_EDGE]-(r)
+
+DB HITS: 4117132
+
+MS: 1785
+
+
+
+
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.valid_until) AND EXISTS(e.sourceID) AND EXISTS(e.service_provider)
+REMOVE e.countries, e.country_codes, e.jurisdiction_description, e.valid_until, e.sourceID, e.service_provider
+
+
+DB HITS: 7888666
+
+MS: 4140
+
+----------------
+
+
+
+
+How much redundancy saved by normalization (perform query on denormalised graph):
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.countries AS countries, COUNT(e.country_codes) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.countries AS countries, e.jurisdiction_description AS description, COUNT(e.country_codes) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.countries AS countries, e.sourceID AS ids, COUNT(e.country_codes) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.countries AS countries, e.valid_until AS valid, COUNT(e.country_codes) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.country_codes AS codes, COUNT(e.countries) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.country_codes AS codes, e.valid_until AS valid, COUNT(e.countries) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.country_codes AS codes, e.sourceID AS ids, COUNT(e.countries) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+
+
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.service_provider AS provider, COUNT(e.sourceID) AS dist1, COUNT(e.valid_until) AS dist2 WHERE dist1 > 1 AND dist2 > 1
+RETURN SUM(dist1)
+
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.sourceID AS ids, COUNT(e.valid_until) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND
+EXISTS(e.service_provider) AND
+EXISTS(e.countries) AND
+EXISTS(e.valid_until) AND
+EXISTS(e.sourceID) AND
+EXISTS(e.country_codes)
+WITH e.valid_until AS valid, COUNT(e.sourceID) AS dist WHERE dist > 1
+RETURN SUM(dist)
