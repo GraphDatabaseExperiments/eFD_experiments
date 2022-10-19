@@ -13,4 +13,4 @@ WITH e.jurisdiction_description AS description, COUNT(DISTINCT(e.jurisdiction)) 
 RETURN description, dist
 ```
 
-shows 
+shows  
