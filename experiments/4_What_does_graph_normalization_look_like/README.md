@@ -84,3 +84,5 @@ REMOVE e.countries, e.country_codes
 ```
 
 which results in the normalized graph. Here we used meaningful labels for the newly created nodes and edges.
+
+For additional information on the queries performed for P2 and P3 we refer to the files in this folder.
