@@ -9,8 +9,23 @@ Performing the query
 ```
 MATCH (e:Entity) WHERE
 EXISTS(e.jurisdiction_description) AND EXISTS(e.jurisdiction)
-WITH e.jurisdiction_description AS description, COUNT(DISTINCT(e.jurisdiction)) AS dist WHERE dist > 1
+WITH e.jurisdiction_description AS description, COUNT(DISTINCT(e.jurisdiction)) AS dist
 RETURN description, dist
 ```
 
-confirms that the gFD 'Entity':'jurisdiction_description' -> 'jurisdiction' is violated and provides insight into how many distinct values of 'jurisdiction' exist for the same value of the property 'jurisdiction_description'.
+confirms that the gFD 'Entity':'jurisdiction_description' -> 'jurisdiction' is violated and provides insight into how many distinct values of 'jurisdiction' exist for the same value of the property 'jurisdiction_description'. This query shows the follwoing:
+
+- 52 values of jurisdiction_description' with each no more than one distinct value of 'jurisdiction' associated
+- 25 values of jurisdiction_description' with each two distinct values of 'jurisdiction' associated
+- 8 values of jurisdiction_description' with each three distinct values of 'jurisdiction' associated
+
+This inconsistency profile and digging deeper into the data performing queries such as
+
+```
+MATCH (e:Entity) WHERE
+EXISTS(e.jurisdiction_description) AND EXISTS(e.jurisdiction)
+AND e.jurisdiction_description = 'Bahamas' 
+RETURN DISTINCT e.jurisdiction
+```
+
+leads us to believe this might not be a meaningful gFD.
