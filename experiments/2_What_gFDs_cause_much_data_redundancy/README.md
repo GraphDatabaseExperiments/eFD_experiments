@@ -11,4 +11,4 @@ EXISTS(e.jurisdiction_description) AND EXISTS(e.jurisdiction)
 WITH e.jurisdiction_description AS description, COUNT(DISTINCT(e.jurisdiction)) AS dist WHERE dist > 1
 RETURN description, dist
 
-shows
+shows 
