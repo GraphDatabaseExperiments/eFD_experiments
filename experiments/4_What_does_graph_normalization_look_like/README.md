@@ -34,7 +34,7 @@ In particular we looked at the following property sets:
 
 To meassure the amount of redundancy caused by the given gFDs associated with P1 we can execute the following queries:
 
-'''
+```
 MATCH (e:Entity) WHERE
 EXISTS(e.jurisdiction_description) AND
 EXISTS(e.countries) AND
@@ -42,11 +42,11 @@ EXISTS(e.service_provider) AND
 EXISTS(e.country_codes)
 WITH e.countries AS countries, COUNT(e.countries) AS dist WHERE dist > 1
 RETURN SUM(dist)
-'''
+```
 
 and
 
-'''
+```
 MATCH (e:Entity) WHERE
 EXISTS(e.jurisdiction_description) AND
 EXISTS(e.countries) AND
@@ -54,33 +54,33 @@ EXISTS(e.service_provider) AND
 EXISTS(e.country_codes)
 WITH e.country_codes AS codes, COUNT(e.country_codes) AS dist WHERE dist > 1
 RETURN SUM(dist)
-'''
+```
 
 
 The Cypher queries to transform the original property graph into the normalized graph for the set P1 are as follows:
 
-'''
+```
 MATCH (e:Entity)
 WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.service_provider)
 WITH DISTINCT e.countries AS countries, e.country_codes as codes
 CREATE (l:Location{countries: countries, country_codes: codes})
-'''
+```
 
 to create the new nodes with properties XY on them and
 
-'''
+```
 MATCH (e:Entity),(l:Location)
 WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.service_provider) AND
 e.countries = l.countries
 CREATE (e)<-[:LOCATION_OF]-(l)
-'''
+```
 
 to create the edges between the new nodes and the original nodes. Finally we need to remove the respective properties from the original nodes using
 
-'''
+```
 MATCH (e:Entity)
 WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.service_provider)
 REMOVE e.countries, e.country_codes
-'''
+```
 
 which results in the normalized graph. Here we used meaningful labels for the newly created nodes and edges.
