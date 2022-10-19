@@ -1,5 +1,7 @@
 # What does graph normalization look like
 
+### Setting
+
 In our experiments we looked at the original graph from the Offshore dataset and performed different normalizations with respect to the label L = 'Entity' and different embeddings P and the corresponding gFDs L:P:X -> Y that are satsified.
 
 In particular we looked at the following property sets:
@@ -26,3 +28,34 @@ In particular we looked at the following property sets:
 - L:P3: 'service_provider' -> 'valid_until'
 - L:P3: 'sourceID' -> 'valid_until'
 - L:P3: 'valid_until' -> 'sourceID'
+
+
+### Cyper queries
+
+The Cypher queries to transform the original property graph into the normalized graph for the set P1 are as follows:
+
+'''
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.service_provider)
+WITH DISTINCT e.countries AS countries, e.country_codes as codes
+CREATE (l:Location{countries: countries, country_codes: codes})
+'''
+
+to create the new nodes with properties XY on them and
+
+'''
+MATCH (e:Entity),(l:Location)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.service_provider) AND
+e.countries = l.countries
+CREATE (e)<-[:LOCATION_OF]-(l)
+'''
+
+to create the edges between the new nodes and the original nodes. Finally we need to remove the respective properties from the original nodes using
+
+'''
+MATCH (e:Entity)
+WHERE EXISTS(e.countries) AND EXISTS(e.country_codes) AND EXISTS(e.jurisdiction_description) AND EXISTS(e.service_provider)
+REMOVE e.countries, e.country_codes
+'''
+
+which results in the normalized graph.
