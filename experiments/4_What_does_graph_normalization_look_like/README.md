@@ -1,6 +1,6 @@
 # What does graph normalization look like
 
-### Setting
+### Setting:
 
 In our experiments we looked at the original graph from the Offshore dataset and performed different normalizations with respect to the label L = 'Entity' and different embeddings P and the corresponding gFDs L:P:X -> Y that are satsified.
 
