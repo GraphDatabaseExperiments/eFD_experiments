@@ -2,7 +2,7 @@
 
 In our experiments we looked at the original graph from the Offshore dataset and performed different normalizations with respect to different embeddings P and the corresponding gFDs 'Entity':P:X -> Y that hold.
 
-In particular we looked at the following:
+In particular we looked at the following property sets:
 
 1.) P1 = {'jurisdiction_description', 'countries', 'service_provider', 'country_codes'} with the set of constraints:
 
