@@ -48,3 +48,46 @@ EXISTS(o.shipRegion) AND
 o.customerID = 'CENTC'
 SET o.shipCountry = 'Estados Unidos Mexicanos'
 ```
+
+on the original graph and meassured their performance in contrast to the queries
+
+```
+MATCH (c:Customer) WHERE 
+EXISTS(c.customerID) AND
+EXISTS(c.shipCity) AND
+EXISTS(c.shipName) AND
+EXISTS(c.shipPostalCode) AND
+EXISTS(c.shipCountry) AND
+EXISTS(c.shipAddress) AND
+EXISTS(c.shipRegion) AND
+WHERE c.customerID = 'SAVEA'
+SET c.shipCountry = 'United States'
+```
+
+```
+MATCH (c:Customer) WHERE 
+EXISTS(c.customerID) AND
+EXISTS(c.shipCity) AND
+EXISTS(c.shipName) AND
+EXISTS(c.shipPostalCode) AND
+EXISTS(c.shipCountry) AND
+EXISTS(c.shipAddress) AND
+EXISTS(c.shipRegion) AND
+c.customerID = 'SEVES'
+SET c.shipCountry = 'United Kingdom'
+```
+
+```
+MATCH (c:Customer) WHERE 
+EXISTS(c.customerID) AND
+EXISTS(c.shipCity) AND
+EXISTS(c.shipName) AND
+EXISTS(c.shipPostalCode) AND
+EXISTS(c.shipCountry) AND
+EXISTS(c.shipAddress) AND
+EXISTS(c.shipRegion) AND
+WHERE c.customerID = 'CENTC'
+SET c.shipCountry = 'Estados Unidos Mexicanos'
+```
+
+on the normalized graph with respect to the gFD 'Order':'customerID','shipCity', 'shipName', 'shipPostalCode', 'shipCountry', 'shipAddress', 'shipRegion' : 'customerID' -> 'shipCity', 'shipName', 'shipPostalCode', 'shipCountry', 'shipAddress', 'shipRegion'.
