@@ -1,3 +1,5 @@
 # How do benefits of normalization scale
 
-Details on experiments on synthetic dataset and how to replicate them.
+For the experiments on synthetic datasets we used Python and the Neo4j Python Driver to connect to the graph database.
+
+This folder contains the Python script used to execute the experiments synthetic data. Results from these experiments can be found in this folder.
