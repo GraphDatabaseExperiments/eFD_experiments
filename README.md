@@ -42,7 +42,7 @@ To reproduce the experiments in our research the user will need to download the 
 
 The experiments in our research on gFDs/gUCs and graph databse normalization are subsummed in the following sections providing answers to the corresponding questions:
 
-- 1.) What gFDs do graphs exhibit?
+- 1.) [What gFDs do graphs exhibit?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/1_What_gFDs_do_graphs_exhibit)
 - 2.) What gFDs cause much data redundancy?
 - 3.) How much inconsistency can gFDs avoid?
 - 4.) What does graph normalization look like?
