@@ -91,3 +91,5 @@ SET c.shipCountry = 'Estados Unidos Mexicanos'
 ```
 
 on the normalized graph with respect to the gFD 'Order':'customerID','shipCity', 'shipName', 'shipPostalCode', 'shipCountry', 'shipAddress', 'shipRegion' : 'customerID' -> 'shipCity', 'shipName', 'shipPostalCode', 'shipCountry', 'shipAddress', 'shipRegion'.
+
+In the case of the Offshore dataset we performed experiments in a similar fashion and for further details on these experiments we refer to the files in this folder.
