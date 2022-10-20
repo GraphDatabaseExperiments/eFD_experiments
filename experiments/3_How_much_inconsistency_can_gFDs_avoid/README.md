@@ -35,6 +35,14 @@ Similar approaches are used for the gFDs 'Entity':'countries', 'country_codes':'
 For this we performed the following queries for the gFD 'Entity':'countries', 'country_codes':'country_codes' -> 'countries'
 
 ```
+MATCH (e:Entity) WHERE
+EXISTS(e.countries) AND EXISTS(e.country_codes)
+WITH e.country_codes AS codes, COUNT(DISTINCT(e.countries)) AS dist
+RETURN codes, dist
+```
+to get information on the inconsistency profile and
+
+```
 MATCH (e:Entity) WHERE e.country_codes = 'COK' RETURN e.country_codes, e.countries
 ```
 ```
