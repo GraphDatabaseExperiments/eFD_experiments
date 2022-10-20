@@ -51,7 +51,7 @@ The experiments in our research on gFDs/gUCs and graph databse normalization are
 - 7.) [How do benefits of normalization scale?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/7_How_do_benefits_of_normalization_scale)
 
 
-Detailed information on the results of these experiments and instructions on how to replicate them can be found in this repository in the experiments folder. In what follows we like to provide an overview on the different experiments.
+Detailed information on the results of these experiments and instructions on how to replicate them can be found in this repository in the experiments folder or by clicking on the links above. In what follows we like to provide an overview on the different experiments.
 
 ### 1.) What gFDs do graphs exhibit?
 
