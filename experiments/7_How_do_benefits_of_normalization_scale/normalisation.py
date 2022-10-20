@@ -1,15 +1,5 @@
 '''
-Pilipp Skavantzos
 Graph Database experiments on normalisation
-
-TO DO:
-1.) Generalise properties idea for normalised same as for denormalised
-2.) Include different labels for normalised instances
-3.) Generalise label idea for normalised and denormalised: Multiple lables, for loop SET (n:label_i)
-4.) Merge skills property into generalised idea to streamline
-'''
-
-
 
 
 from sqlite3 import DatabaseError
