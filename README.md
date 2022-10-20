@@ -43,12 +43,12 @@ To reproduce the experiments in our research the user will need to download the 
 The experiments in our research on gFDs/gUCs and graph databse normalization are subsummed in the following sections providing answers to the corresponding questions:
 
 - 1.) [What gFDs do graphs exhibit?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/1_What_gFDs_do_graphs_exhibit)
-- 2.) What gFDs cause much data redundancy?
-- 3.) How much inconsistency can gFDs avoid?
-- 4.) What does graph normalization look like?
-- 5.) How does integrity management improve?
-- 6.) How do aggregate queries improve?
-- 7.) How do benefits of normalization scale?
+- 2.) [What gFDs cause much data redundancy?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/2_What_gFDs_cause_much_data_redundancy)
+- 3.) [How much inconsistency can gFDs avoid?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/3_How_much_inconsistency_can_gFDs_avoid)
+- 4.) [What does graph normalization look like?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/4_What_does_graph_normalization_look_like)
+- 5.) [How does integrity management improve?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/5_How_does_integrity_management_improve)
+- 6.) [How do aggregate queries improve?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/6_How_do_aggregate_queries_improve)
+- 7.) [How do benefits of normalization scale?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/7_How_do_benefits_of_normalization_scale)
 
 
 Detailed information on the results of these experiments and instructions on how to replicate them can be found in this repository in the experiments folder. In what follows we like to provide an overview on the different experiments.
