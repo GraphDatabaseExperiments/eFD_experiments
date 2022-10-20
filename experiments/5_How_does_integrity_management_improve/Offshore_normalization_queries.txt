@@ -1,0 +1,19 @@
+Normalization:
+
+Create provider nodes
+
+
+MATCH (e:Entity) WHERE
+EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until)
+WITH DISTINCT e.service_provider AS provider, e.sourceID AS ids, e.valid_until AS valid
+CREATE (p:Provider{service_provider: provider, sourceID: ids, valid_until: valid})
+
+
+
+Create edges and remove properties from entity nodes
+
+MATCH (e:Entity),(p:Provider) WHERE
+EXISTS(e.service_provider) AND EXISTS(e.sourceID) AND EXISTS(e.valid_until) AND
+e.service_provider = p.service_provider
+CREATE (e)<-[:PROVIDED_TO]-(p)
+REMOVE e.service_provider, e.sourceID, e.valid_until
