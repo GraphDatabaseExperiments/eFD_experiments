@@ -1,0 +1,38 @@
+As the nodes labelled Customer already carried the property customerID as well as the nodes labelled Order we did not create new nodes to transfer the properties in XY, but transferred these instead to the corresponding Customer nodes.
+
+This means there is also no need to create new edges in this case.
+
+
+
+Updating customer nodes and remove properties from order nodes
+
+
+MATCH (o:Order),(c:Customer) WHERE
+EXISTS(c.customerID) AND
+EXISTS(o.customerID) AND
+(o.customerID = c.customerID) AND
+EXISTS(o.shipCity) AND
+EXISTS(o.shipName) AND
+EXISTS(o.shipPostalCode) AND
+EXISTS(o.shipCountry) AND
+EXISTS(o.shipAddress) AND
+EXISTS(o.shipRegion)
+SET c.shipCity = o.shipCity
+REMOVE o.shipCity
+SET c.shipName = o.shipName
+REMOVE o.shipName
+SET c.shipPostalCode = o.shipPostalCode
+REMOVE o.shipPostalCode
+SET c.shipCountry = o.shipCountry
+REMOVE o.shipCountry
+SET c.shipAddress = o.shipAddress
+REMOVE o.shipAddress
+SET c.shipRegion = o.shipRegion
+REMOVE o.shipRegion
+
+
+
+
+Remove customerID in orders (as no foreign key required anymore)
+
+MATCH (o:Order) REMOVE o.customerID
