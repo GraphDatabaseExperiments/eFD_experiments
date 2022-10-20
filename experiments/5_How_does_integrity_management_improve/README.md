@@ -1,3 +1,50 @@
 # How does integrity management improve
 
-Details on how to replicate experiments
+The aim of graph normalization is minimizing and ideally eliminating the occurence of redundant data occurences. Using our notions of gFDs and gUCs this can be achieved by transforming a redundancy causing gFD into a gUC that holds on the newly created nodes. As a result we won't have to update multiple occurences of a property value of one of the properties in Y for a gFD L:P:X -> Y which can be huge for gFDs causing high redundancy.
+
+In our experiments we looked at the Northwind dataset with respect to the gFD 'Order':'customerID','shipCity', 'shipName', 'shipPostalCode', 'shipCountry', 'shipAddress', 'shipRegion' : 'customerID' -> 'shipCity', 'shipName', 'shipPostalCode', 'shipCountry', 'shipAddress', 'shipRegion'
+
+Here we want to perform updates for all nodes carrying the label 'Order' that are complete with respect to the properties outlined in the gFD above and have a particular customerID. In particular we want to update one of the values on the right hand side of the gFD, in our experiment, the value for the property 'shipCountry'.
+
+We looked at different scenarios with respect to the amount of redundant value occurences. This means we chose nodes with values of 'customerID' that have minimal, average and maximum number of redundant property values on the right hand side of the gFD.
+
+For this we performed the queries
+
+```
+MATCH (o:Order) WHERE
+EXISTS(o.customerID) AND
+EXISTS(o.shipCity) AND
+EXISTS(o.shipName) AND
+EXISTS(o.shipPostalCode) AND
+EXISTS(o.shipCountry) AND
+EXISTS(o.shipAddress) AND
+EXISTS(o.shipRegion) AND
+o.customerID = 'SAVEA'
+SET o.shipCountry = 'United States'
+```
+
+```
+MATCH (o:Order) WHERE
+EXISTS(o.customerID) AND
+EXISTS(o.shipCity) AND
+EXISTS(o.shipName) AND
+EXISTS(o.shipPostalCode) AND
+EXISTS(o.shipCountry) AND
+EXISTS(o.shipAddress) AND
+EXISTS(o.shipRegion) AND
+o.customerID = 'SEVES'
+SET o.shipCountry = 'United Kingdom'
+```
+
+```
+MATCH (o:Order) WHERE
+EXISTS(o.customerID) AND
+EXISTS(o.shipCity) AND
+EXISTS(o.shipName) AND
+EXISTS(o.shipPostalCode) AND
+EXISTS(o.shipCountry) AND
+EXISTS(o.shipAddress) AND
+EXISTS(o.shipRegion) AND
+o.customerID = 'CENTC'
+SET o.shipCountry = 'Estados Unidos Mexicanos'
+```
