@@ -166,7 +166,8 @@ def create_normalised(database, people_per_department, department_distribution):
     # create relationships
     create_relationships_one = "MATCH (e:Employee), (c:Company) CREATE (e)-[:WORKS_FOR]->(c)"
     create_relationships_two = "MATCH (e:Employee),(d:Department) WHERE EXISTS(e.skills) AND e.name CONTAINS d.dept CREATE (e)-[:IN_DEPARTMENT]->(d)"
-
+    # change EXISTS according to property set P
+    
     new_db.execute_query(create_relationships_one)
     new_db.execute_query(create_relationships_two)
 
@@ -271,10 +272,10 @@ def add_embedding_check(node_variable, embeddings: list):
 def main():
 
     #local bolt and http port, etc:
-    local_bolt = "bolt://localhost:11003"
-    local_http = "http://localhost:11006"
-    local_pw = "Pskav752$api"
-    local_user = "neo4j"
+    local_bolt = "<enter_local_bolt>"
+    local_http = "<enter_local_http>"
+    local_pw = "<enter_password_for_graph_db>"
+    local_user = "<enter_user_for_graph_db__neo4j_by_default>"
 
     # Initialise DB
     new_db = gdbms_test(local_bolt, local_user, local_pw)
@@ -301,7 +302,7 @@ def main():
 
         # different queries for experiments
         # queries commented out depending on experiment scenario
-        # depending on whether query for normalized graph or baseline graph set boolean variable is_normalised to True or False
+        # depending on whether query for normalized graph or baseline graph set boolean variable is_normalised to True or False and ajdust line 168 according to property set P
 
         
         # queries to meassure performance of aggreation
