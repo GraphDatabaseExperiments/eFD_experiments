@@ -1,6 +1,6 @@
 # Normalizing Graph Data
 
-## Introduction:
+## Introduction: 
 
 This Github repository complements our research on property graph normalization with graph-tailored uniqueness contraints (gUC) and graph-tailored functional dependencies (gFD) as foundation.
 
