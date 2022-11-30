@@ -12,7 +12,7 @@ In particular, this repository is comprised of the following:
 - images illustrating the experiments on graph datasets
 - files and instructions on how to replicate experiments
 
-
+For a step by step guide on how to replicate the experiments please see the [step by step guide](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments_manual).
 
 ## Preliminaries:
 
