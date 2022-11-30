@@ -37,6 +37,8 @@ The real world graph datasets (Northwind and Offshore Leaks) provided as dump fi
 
 To reproduce the experiments in our research the user will need to download the dump files for the datasets used and obtain the software as outlined above which is available for free through official websites. For detailed instructions on how to reproduce the experiment results on synthetic and real world datasets we refer to the experiments folder in this repository.
 
+In particular the folder [How do benefits of normalization scale?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/7_How_do_benefits_of_normalization_scale) contains the Python Script that had been used to perform the experiments on synthetic datasets.
+
 
 ## Experiments:
 
