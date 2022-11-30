@@ -1,6 +1,6 @@
 # Manual to replicate experiments
 
-This manaul will provide a step by step guide on how to get set up to replicate the experiments discussed in our research.
+This manual will provide a step by step guide on how to get set up to replicate the experiments discussed in our research.
 
 In particular, this folder contains information on the following:
 
