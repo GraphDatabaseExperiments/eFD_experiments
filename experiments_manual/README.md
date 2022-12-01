@@ -59,7 +59,7 @@ To import these files using Neo4j Desktop the user will have to follow these ste
 
 1.) Click on 3 dots that appear on the right when hovering over the database name.
 
-2.) The dump files need to be copied to the folder that opens when clicking "Open Folder" in the dropdown menu that appears when clicking the 3 dots. Alternatively the user can click on "Add" and then on the dropdownmenu choose "File".
+2.) The dump files need to be copied to the folder that opens when clicking "Open Folder" in the dropdown menu that appears when clicking the 3 dots. Alternatively the user can click on "Add" and then on the drop down menu choose "File".
 
 3.) Once the dump file appears under Files then depending on the operating system the user could click on 3 dots next to the dump file and chose "Create new DBMS from dump" or the user might have to click on the 3 dots on the right when hovering over the database name, open the terminal and follow the instructions to import a dump file as shown in the [Neo4j Operation's manual](https://neo4j.com/docs/operations-manual/current/backup-restore/restore-dump/).
 These steps are also explained in this [helpful video](https://www.youtube.com/watch?v=HPwPh5FUvAk).
@@ -67,7 +67,7 @@ These steps are also explained in this [helpful video](https://www.youtube.com/w
 To troubleshoot any issues we refer to to the [Neo4j Community Forum](https://community.neo4j.com/t5/graphacademy-discussions/cannot-create-new-database-from-dump-file/td-p/39914) as well. 
 
 
-## First experiments
+## First experiments:
 
 
 ## How to run Python and Neo4j using Neo4j Python Driver: 
