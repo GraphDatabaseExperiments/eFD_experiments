@@ -14,6 +14,9 @@ We will present two options to set up Neo4j. Using Neo4j Browser in an online en
 
 ### Neo4j Sandbox:
 
+To replicate the experiments using the Offshore dataset we recommend using the [Neo4j Sandbox](https://neo4j.com/sandbox/). By clicking the link and logging in the user will be able to create a project using one of Neo4j's sample datasets.
+
+![Create new Sandbox project](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/sandbox1.JPG?raw=true)
 
 
 ### Neo4j Desktop:
