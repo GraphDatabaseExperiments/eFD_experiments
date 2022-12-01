@@ -30,6 +30,7 @@ and perform queries on the dataset.
 
 ![Perform queries](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/sandbox4.JPG?raw=true)
 
+Now the user can perform the queries for the Offshore dataset as outlined in the [experiments folder](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/).
 
 ### Neo4j Desktop:
 
