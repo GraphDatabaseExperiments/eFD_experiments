@@ -10,7 +10,7 @@ In particular, this folder contains information on the following:
 
 ## Setting up Neo4j: 
 
-
+We will present two options to set up Neo4j. Using Neo4j Browser in an online environment called the [Neo4j Sandbox](https://neo4j.com/sandbox/) is the quickest and easiest way, yet will be limited to replicating experiments using the Offshore dataset. For full usability and to replicate all experiments discussed we show how to obtain [Neo4j Desktop](https://neo4j.com/download/) and set it up.
 
 ### Neo4j Sandbox:
 
