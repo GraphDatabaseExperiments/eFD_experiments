@@ -18,6 +18,18 @@ To replicate the experiments using the Offshore dataset we recommend using the [
 
 ![Create new Sandbox project](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/sandbox1.JPG?raw=true)
 
+Among these datasets is the ICIJ Offshore Leaks dataset.
+
+![Create ICIJ Offshore project](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/sandbox2.JPG?raw=true)
+
+Once created the user can open dataset using Neo4j Browser online
+
+![Open Neo4j Broswer](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/sandbox3.JPG?raw=true)
+
+and perform queries on the dataset.
+
+![Perform queries](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/sandbox4.JPG?raw=true)
+
 
 ### Neo4j Desktop:
 
