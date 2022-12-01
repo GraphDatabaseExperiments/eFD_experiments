@@ -66,6 +66,9 @@ These steps are also explained in this [helpful video](https://www.youtube.com/w
 
 To troubleshoot any issues we refer to to the [Neo4j Community Forum](https://community.neo4j.com/t5/graphacademy-discussions/cannot-create-new-database-from-dump-file/td-p/39914) as well. 
 
+Once the dump file is loaded into the local DBMS instance the user can explore the database by hovering over the database name, clicking on "Start" and choose the option to open the database using Neo4j Browser.
+
+![Open in Neo4j Browser](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/desktop3.JPG?raw=true)
 
 ## First experiments:
 
