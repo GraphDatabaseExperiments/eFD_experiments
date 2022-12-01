@@ -48,8 +48,24 @@ and within this project create a new local database.
 
 ## Import dump files in Neo4j Desktop: 
 
+The two datasets used in the experiments can be found as dump files using the following links:
+
+--
+
+--
+
+To import these files using Neo4j Desktop the user will have to follow these steps.
+
+1.) Click on 3 dots that appear on the right when hovering over the database name.
+
+2.) The dump files need to be copied to the folder that opens when clicking "Open Folder". Alternatively the user can click on "Add" and then on the dropdownmenu choose "File".
+
+Alternatively, the user can
 
 
+To troubleshoot any issues we refer to the [Neo4j Operation's manual](https://neo4j.com/docs/operations-manual/current/backup-restore/restore-dump/) as well as the [Neo4j Community Forum](). These steps are also explained in this [helpful video](https://www.youtube.com/watch?v=HPwPh5FUvAk).
+
+## First experiments
 
 
 ## How to run Python and Neo4j using Neo4j Python Driver: 
