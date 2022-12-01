@@ -36,6 +36,16 @@ Now the user can perform the queries for the Offshore dataset as outlined in the
 
 To gain full usability and replicate all experiments we recommend to download Neo4j Desktop. This can be obtained in Neo4j's official [Download Center](https://neo4j.com/download-center/#desktop). Detailed installation instructions can be found in [Neo4j Desktop's manual](https://neo4j.com/docs/desktop-manual/current/installation/). The manual also provides on overview of Neo4j Desktop's feautures in the [Visual Tour](https://neo4j.com/docs/desktop-manual/current/visual-tour/).
 
+Once installed the user will have to open Neo4j Desktop and create a new project
+
+![Create new project](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/dekstop1.JPG?raw=true)
+
+and within this project create a new local database.
+
+![Create new database](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/dekstop2.JPG?raw=true)
+
+
+
 ## Import dump files in Neo4j Desktop: 
 
 
