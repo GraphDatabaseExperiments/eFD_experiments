@@ -85,7 +85,7 @@ RETURN description, dist
 
 which will yield the result illustrated below.
 
-![First query](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/desktop5.JPG?raw=true)
+![First query](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/desktop4.JPG?raw=true)
 
 
 ## How to run Python and Neo4j using Neo4j Python Driver:
