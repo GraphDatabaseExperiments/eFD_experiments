@@ -88,7 +88,7 @@ which will yield the result illustrated below.
 ![First query](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/desktop4.JPG?raw=true)
 
 
-## How to run Python and Neo4j using Neo4j Python Driver:
+## How to run Python and Neo4j using Neo4j Python Driver: 
 
 For the experiments on synthetic datasets we used Python and connected to a Neo4j database using the Neo4j Python Driver. For installation instructions and some sample code fragments we refer the user to the [Neo4j Python Driver Manual](https://neo4j.com/docs/api/python-driver/current/).
 
