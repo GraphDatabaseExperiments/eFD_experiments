@@ -72,5 +72,7 @@ Once the dump file is loaded into the local DBMS instance the user can explore t
 
 ## First experiments:
 
+Once Neo4j is set up the user will be able to replicate the experiments carried out in our research.
+
 
 ## How to run Python and Neo4j using Neo4j Python Driver: 
