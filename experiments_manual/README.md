@@ -76,12 +76,12 @@ Once Neo4j is set up the user will be able to replicate the experiments carried 
 
 The first experiment to carry out is to gather the information for the inconsistency profile for the Offshore leaks dataset. For this the user will have to open the database using Neo4j Browser (Sandbox or Desktop) and perform the following query
 
-'''
+```
 MATCH (e:Entity) WHERE
 EXISTS(e.jurisdiction_description) AND EXISTS(e.jurisdiction)
 WITH e.jurisdiction_description AS description, COUNT(DISTINCT(e.jurisdiction)) AS dist
 RETURN description, dist
-'''
+```
 
 which will yield the result illustrated below.
 
