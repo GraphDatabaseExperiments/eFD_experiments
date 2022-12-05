@@ -74,7 +74,7 @@ Once the dump file is loaded into the local DBMS instance the user can explore t
 
 Once Neo4j is set up the user will be able to replicate the experiments carried out in our research. The experiments on the Offshore leaks dataset can be carried out without much prior preparation by using the Neo4j Sandbox. For instructions on how to set up the Neo4j Sandbox we please see the previous section. For the experiments on the Northwind data the user will have to set up Neo4j Desktop and import the respective dump file as outlined above. For experiments on synthetic data the user will need Neo4j Desktop and install the Neo4j Python Driver which will be explained further below.
 
-The first experiment to carry out is to gather the information for the inconsistency profile for the Offshore leaks dataset. For this the user will have to open the database using Neo4j Browser (Sandbox or Desktop) and perform the following query
+The first experiment to carry out is to gather the information for the inconsistency profile for the Offshore leaks dataset with respect to the gFD {Entity}:{jusrisdiction_description, jurisdiction}:{jusrisdiction_description} --> {jurisdiction} which is violated. For this the user will have to open the database using Neo4j Browser (Sandbox or Desktop) and perform the following query
 
 ```
 MATCH (e:Entity) WHERE
