@@ -87,6 +87,8 @@ which will yield the result illustrated below.
 
 ![First query](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/desktop4.JPG?raw=true)
 
+Additional experiments can be replicated with the help of the queries as outlined in the documentation and files found [here](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments).
+
 
 ## How to run Python and Neo4j using Neo4j Python Driver: 
 
