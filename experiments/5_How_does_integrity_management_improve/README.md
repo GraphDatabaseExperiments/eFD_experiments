@@ -60,7 +60,7 @@ EXISTS(c.shipPostalCode) AND
 EXISTS(c.shipCountry) AND
 EXISTS(c.shipAddress) AND
 EXISTS(c.shipRegion) AND
-WHERE c.customerID = 'SAVEA'
+c.customerID = 'SAVEA'
 SET c.shipCountry = 'United States'
 ```
 
@@ -86,7 +86,7 @@ EXISTS(c.shipPostalCode) AND
 EXISTS(c.shipCountry) AND
 EXISTS(c.shipAddress) AND
 EXISTS(c.shipRegion) AND
-WHERE c.customerID = 'CENTC'
+c.customerID = 'CENTC'
 SET c.shipCountry = 'Estados Unidos Mexicanos'
 ```
 
