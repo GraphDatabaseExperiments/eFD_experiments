@@ -7,6 +7,7 @@ In particular, this folder contains information on the following:
 - instructions on how to set up Neo4j
 - information on how to import dump files in Neo4j Desktop
 - details on how to run Python in conjunction with Neo4j
+- instructions on how to replicate experiments in Neo4j and Amazon Neptune
 
 ## Setting up Neo4j: 
 
@@ -70,7 +71,7 @@ Once the dump file is loaded into the local DBMS instance the user can explore t
 
 ![Open in Neo4j Browser](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/desktop3.JPG?raw=true)
 
-## First experiments:
+## First experiments using Neo4j:
 
 Once Neo4j is set up the user will be able to replicate the experiments carried out in our research. The experiments on the Offshore leaks dataset can be carried out without much prior preparation by using the Neo4j Sandbox. For instructions on how to set up the Neo4j Sandbox we please see the previous section. For the experiments on the Northwind data the user will have to set up Neo4j Desktop and import the respective dump file as outlined above. For experiments on synthetic data the user will need Neo4j Desktop and install the Neo4j Python Driver which will be explained further below.
 
@@ -95,5 +96,19 @@ Additional experiments can be replicated with the help of the queries as outline
 For the experiments on synthetic datasets we used Python and connected to a Neo4j database using the Neo4j Python Driver. For installation instructions and some sample code fragments we refer the user to the [Neo4j Python Driver Manual](https://neo4j.com/docs/api/python-driver/current/).
 
 
+
+## Setting up Amazon Neptune:
+
+Instructions on how to set up Neptune
+
+## Import graph data into Neptune:
+
+
+Instructions on how to import in Neptune
+
+## First experiments using Neptune:
+
+
+Instructions on how to run experiments in Neptune
 
 
