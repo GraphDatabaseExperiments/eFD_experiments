@@ -26,6 +26,8 @@ The software used to perform the experiments carried out in our research are:
 
 - Python 3.9.13
 
+- Amazon Neptune 1.2.1.0
+
 
 The real world graph datasets (Northwind and Offshore Leaks) provided as dump files for import in Neo4j that we use in our experiments can be found in the following Github repositories:
 
