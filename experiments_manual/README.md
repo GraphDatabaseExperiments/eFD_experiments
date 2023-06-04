@@ -99,16 +99,16 @@ For the experiments on synthetic datasets we used Python and connected to a Neo4
 
 ## Setting up Amazon Neptune:
 
-Instructions on how to set up Neptune
+To set up Amazon Neptune and replicate the experiments of our research an AWS account is required. For more instructions on the use of Amazon Neptune we refer to the [Neptune Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html).
 
 ## Import graph data into Neptune:
 
 
-Instructions on how to import in Neptune
+Instructions on how to import data into Neptune using an S3 bucket and CSV files is outlined in the Amazon Nepune Documentation under [Neptune Bulk Loader](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html).
 
 ## First experiments using Neptune:
 
 
-Instructions on how to run experiments in Neptune
+The queries described in the [experiment section] (https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments) can be relicated in Amazon Neptune using the preamble %%oc in the Jupyter Notebooks to declare the use of Open Cypher.
 
 
