@@ -109,6 +109,10 @@ Instructions on how to import data into Neptune using an S3 bucket and CSV files
 ## First experiments using Neptune:
 
 
-The queries described in the [experiment section](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments) can be relicated in Amazon Neptune using the preamble %%oc in the Jupyter Notebooks to declare the use of Open Cypher.
+The queries described in the [experiment section](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments) can be replicated in Amazon Neptune using the preamble %%oc in the Jupyter Notebooks to declare the use of Open Cypher. This can be seen in the screenshot below.
+
+![Cypher Queries in Neptune](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/neptune_cypher.JPG?raw=true)
+
+The Jupyter Notebooks to carry out the experiments can be found in the [experiment section](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments)
 
 
