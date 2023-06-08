@@ -106,6 +106,12 @@ To set up Amazon Neptune and replicate the experiments of our research an AWS ac
 
 Instructions on how to import data into Neptune using an S3 bucket and CSV files is outlined in the Amazon Nepune Documentation under [Neptune Bulk Loader](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html).
 
+The Neptune Bulk Loader can be accessed using %load and the necessary files need to be stored in an S3 bucket. For an example on how to load CSV files we refer to the following screenshot.
+
+![Import with Neptune](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/neptune_import.JPG?raw=true)
+
+
+
 ## First experiments using Neptune:
 
 
@@ -113,6 +119,6 @@ The queries described in the [experiment section](https://github.com/GraphDataba
 
 ![Cypher Queries in Neptune](https://github.com/GraphDatabaseExperiments/normalization_experiments/blob/main/experiments_manual/images/neptune_cypher.JPG?raw=true)
 
-The Jupyter Notebooks to carry out the experiments can be found in the [experiment section](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments)
+The Jupyter Notebooks to carry out the experiments can be found in the [experiment section](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments).
 
 
