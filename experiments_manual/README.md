@@ -101,6 +101,8 @@ For the experiments on synthetic datasets we used Python and connected to a Neo4
 
 To set up Amazon Neptune and replicate the experiments of our research an AWS account is required. For more instructions on the use of Amazon Neptune we refer to the [Neptune Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/intro.html).
 
+To replicate the experiments a medium cluster is sufficient for the experiments on the Northwind dataset and a large cluster is necessary for the experiments on the Offshore dataset.
+
 ## Import graph data into Neptune:
 
 
