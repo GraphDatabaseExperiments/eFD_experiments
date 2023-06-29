@@ -93,7 +93,7 @@ Additional experiments can be replicated with the help of the queries as outline
 
 ## How to run Python and Neo4j using Neo4j Python Driver: 
 
-For the experiments on synthetic datasets we used Python and connected to a Neo4j database using the Neo4j Python Driver. For installation instructions and some sample code fragments we refer the user to the [Neo4j Python Driver Manual](https://neo4j.com/docs/api/python-driver/current/).
+For the experiments on synthetic datasets we used Python and connected to a Neo4j database using the Neo4j Python Driver. For installation instructions and some sample code fragments we refer the user to the [Neo4j Python Driver Manual](https://neo4j.com/docs/api/python-driver/current/). For the Python files used to conduct the experiments we refer the reader to the [experiment section](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments).
 
 
 
