@@ -1,4 +1,4 @@
-# Normalizing Graph Data
+# Normalizing Property Graphs
 
 ## Introduction: 
 
