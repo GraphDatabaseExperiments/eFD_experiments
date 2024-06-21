@@ -1,0 +1,54 @@
+Change wrong shipName:
+
+
+MATCH (o:Order)
+WHERE o.shipName CONTAINS 'Alfred'
+SET o.shipName = "Alfred's Futterkiste"
+
+
+####################
+
+Meassure redundancy:
+
+MATCH (o:Order)
+WHERE o.customerID IS NOT NULL AND o.shipCity IS NOT NULL AND o.shipName IS NOT NULL AND o.shipPostalCode IS NOT NULL AND o.shipCountry IS NOT NULL AND o.shipAddress IS NOT NULL AND o.shipRegion IS NOT NULL AND o.orderID IS NOT NULL
+AND o.orderDate IS NOT NULL
+WITH o.customerID AS ids, COUNT(o.customerID) AS dist WHERE dist > 1
+RETURN SUM(dist)
+
+
+829 redundant copies for each property
+
+
+
+
+#####################
+
+Normalisation:
+
+Add properties to customer nodes:
+
+MATCH (o:Order)
+WHERE o.customerID IS NOT NULL AND o.shipCity IS NOT NULL AND o.shipName IS NOT NULL AND o.shipPostalCode IS NOT NULL AND o.shipCountry IS NOT NULL AND o.shipAddress IS NOT NULL AND o.shipRegion IS NOT NULL AND o.orderID IS NOT NULL
+AND o.orderDate IS NOT NULL
+WITH DISTINCT o.customerID AS ids, o.shipCity AS city, o.shipName AS shipname, o.shipPostalCode AS code, o.shipCountry AS country, o.shipAddress AS address, o.shipRegion AS region
+MATCH (c:Customer{customerID: ids})
+SET c.shipCity = city, c.shipName = shipname, c.shipPostalCode = code, c.shipCountry = country, c.shipAddress = address, c.shipRegion = region
+
+
+DB HITS: 14921
+TIME (MS): 663
+
+
+
+Remove properties from Order nodes:
+
+MATCH (o:Order)
+WHERE o.customerID IS NOT NULL AND o.shipCity IS NOT NULL AND o.shipName IS NOT NULL AND o.shipPostalCode IS NOT NULL AND o.shipCountry IS NOT NULL AND o.shipAddress IS NOT NULL AND o.shipRegion IS NOT NULL AND o.orderID IS NOT NULL
+AND o.orderDate IS NOT NULL
+REMOVE o.customerID, o.shipCity, o.shipName, o.shipPostalCode, o.shipCountry, o.shipAddress, o.shipRegion
+
+
+DB HITS: 25731
+TIME (MS): 182
+
