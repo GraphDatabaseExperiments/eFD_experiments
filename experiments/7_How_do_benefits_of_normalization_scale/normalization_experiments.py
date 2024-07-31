@@ -281,7 +281,7 @@ def main():
     new_db = gdbms_test(local_bolt, local_user, local_pw)
         
     # perform experiment multiple times
-    runs = 2
+    runs = 10
     for i in range(1, runs):
         # perform experiment for different scaling factors
         # commented out parts for different experiment scenarios
