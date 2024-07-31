@@ -122,9 +122,8 @@ def sum_time(profile):
 def main():
 
     #local bolt and http port, etc:
-    local_bolt = "bolt://localhost:11003"
-    #local_http = "http://localhost:7474"
-    local_pw = "Pskav752$api"
+    local_bolt = <local_bolt>
+    local_pw = <password>
     local_user = "neo4j"
 
     # Initialise DB
