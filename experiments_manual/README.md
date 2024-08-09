@@ -106,7 +106,9 @@ To replicate the experiments a medium cluster is sufficient for the experiments 
 ## Import graph data into Neptune:
 
 
-Instructions on how to import data into Neptune using an S3 bucket and CSV files is outlined in the Amazon Nepune Documentation under [Neptune Bulk Loader](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html).
+Instructions on how to [import data into Neptune using an S3 bucket](https://www.youtube.com/watch?v=Y42OwmUF23s) and CSV files is outlined in the Amazon Nepune Documentation under [Neptune Bulk Loader](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load.html).
+
+For this the user will also have to create an [IAM role that allows to load from S3](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-IAM-CreateRole.html).
 
 The Neptune Bulk Loader can be accessed using %load and the necessary files need to be stored in an S3 bucket. For an example on how to load CSV files we refer to the following screenshot.
 
