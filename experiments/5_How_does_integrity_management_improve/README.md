@@ -94,20 +94,47 @@ on the normalized graph with respect to the gFD 'Order':'customerID','shipCity',
 
 In the case of the Offshore dataset we performed experiments in a similar fashion and for further details on these experiments we refer to the files in this folder.
 
-In the journal version of our research we performed insertions of new nodes in addition under two scenarios where one time we inserted new nodes with new values to respective equivalence classes associated with the dependencies that hold and one time new nodes for already existing equivalence classes.
+In the journal version of our research we performed insertions of new nodes under two scenarios where one time we inserted new nodes with already existing values for properties XY of respective equivalence classes associated with dependencies that hold and one time new nodes with new values for these properties.
 
-Here, in the case of the Northwind dataset we inserted new nodes using the Cypher operation
-
-```
-MATCH (c:Customer{customerID: 'SAVEA'}) MERGE (o:Order{orderID: 99999})<-[r:PURCHASED]-(c)
-```
-
-for the insertion of nodes for existing equivalence classes and
+More specifically, in the case of the Northwind dataset we inserted new nodes in the original graph using the Cypher operation
 
 ```
-MERGE (o:Order{orderID: 99999})<-[r:PURCHASED]-(c:Customer{customerID: 'new', shipCity: 'new', shipName: 'new', shipPostalCode: 99999, shipCountry: 'new', shipAddress: 'new', shipRegion: 'new'})
+MERGE (o:Order{orderID: 99999, customerID: "SAVEA", shipCity: "Boise", shipName: "Save-a-lot Markets", shipPostalCode: 83720, shipCountry: "USA", shipAddress: "187 Suffolk Ln.", shipRegion: "ID"})
+WITH o AS newnode
+CALL{
+MATCH (o:Order) WHERE
+EXISTS(o.customerID) AND
+EXISTS(o.shipCity) AND
+EXISTS(o.shipName) AND
+EXISTS(o.shipPostalCode) AND
+EXISTS(o.shipCountry) AND
+EXISTS(o.shipAddress) AND
+EXISTS(o.shipRegion)
+WITH o.customerID AS ids, COUNT(DISTINCT(o.shipCity + o.shipName + o.shipPostalCode + o.shipCountry + o.shipAddress + o.shipRegion)) AS amount
+WHERE amount > 1
+RETURN ids, amount
+}
+DELETE newnode
 ```
 
-for the insertion of nodes that are not associated with any existing equivalence class.
+which represents a node insertion for already existing values of XY and for the insertion of nodes with completely new values we used
 
-In the Offshore dataset we performed experiments in a similar fashion and for further details on this we refer to the files in this folder.
+```
+MERGE (o:Order{orderID: 99999, customerID: "new", shipCity: "new", shipName: "new", shipPostalCode: 99999, shipCountry: "new", shipAddress: "new", shipRegion: "new"})
+WITH o AS newnode
+CALL{
+MATCH (o:Order) WHERE
+EXISTS(o.customerID) AND
+EXISTS(o.shipCity) AND
+EXISTS(o.shipName) AND
+EXISTS(o.shipPostalCode) AND
+EXISTS(o.shipCountry) AND
+EXISTS(o.shipAddress) AND
+EXISTS(o.shipRegion)
+WITH o.customerID AS ids, COUNT(DISTINCT(o.shipCity + o.shipName + o.shipPostalCode + o.shipCountry + o.shipAddress + o.shipRegion)) AS amount
+WHERE amount > 1
+RETURN ids, amount
+}
+DELETE newnode
+```
+These operations include the validation of currently existing constraints and a rejection of the insertion in case this constraint is violated after insertion of the new node. In the Offshore dataset we performed experiments in a similar fashion and for further details on this we refer to the files in this folder.
