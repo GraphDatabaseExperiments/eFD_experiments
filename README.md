@@ -1,4 +1,4 @@
-# Normalizing Property Graphs
+# Normalizing Property Graphs / Third and Boyce-Codd Normal Form for Property Graphs (Foundations, Achievements, and Normalization)
 
 ## Introduction: 
 
