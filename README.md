@@ -14,7 +14,7 @@ In particular, this repository is comprised of the following:
 
 For a detailed manual on how to replicate the experiments please see the [step by step guide](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments_manual) found in the experiments manual folder.
 
-In addition this repository contains a [full version of the research paper](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/extended_paper_version) outlining details on mathematical proofs.
+In addition, this repository contains the journal version of our research [Third and Boyce-Codd Normal Form for Property Graphs](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/journal) outlining details on mathematical proofs and presenting additional experimental results.
 
 ## Preliminaries:
 
