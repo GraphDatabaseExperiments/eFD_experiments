@@ -1,4 +1,4 @@
-# How do aggregate queries improve
+# How do queries improve
 
 In our experiments to illustrate the benefits of normalization to the execution of aggregation queries we look again at the Northwind dataset with respect to the gFD 'Order':'customerID','shipCity', 'shipName', 'shipPostalCode', 'shipCountry', 'shipAddress', 'shipRegion' : 'customerID' -> 'shipCity', 'shipName', 'shipPostalCode', 'shipCountry', 'shipAddress', 'shipRegion'.
 
@@ -33,3 +33,35 @@ RETURN min(amount), max(amount), avg(amount)
 ```
 
 We proceeded in a similar fashion for the experiments in the Offshore dataset and for further details we refer to the files in this folder.
+
+In the journal version of our research we performed additional queries involving the DISTINCT operation. For this we executed the query
+
+```
+MATCH (o:Order) WHERE
+EXISTS(o.customerID) AND
+EXISTS(o.shipCity) AND
+EXISTS(o.shipName) AND
+EXISTS(o.shipPostalCode) AND
+EXISTS(o.shipCountry) AND
+EXISTS(o.shipAddress) AND
+EXISTS(o.shipRegion)
+RETURN DISTINCT(o.customerID)
+```
+
+in the orginal Northwind graph and
+
+```
+MATCH (c:Customer) WHERE
+EXISTS(c.customerID) AND
+EXISTS(c.shipCity) AND
+EXISTS(c.shipName) AND
+EXISTS(c.shipPostalCode) AND
+EXISTS(c.shipCountry) AND
+EXISTS(c.shipAddress) AND
+EXISTS(c.shipRegion)
+RETURN DISTINCT(c.customerID)
+```
+
+in the normalized graph. We proceeded in a similar fashion with these experiments in the Offshore graph and the files provided in this folder provide further information on this.
+
+
