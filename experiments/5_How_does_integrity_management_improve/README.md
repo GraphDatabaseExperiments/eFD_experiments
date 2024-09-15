@@ -94,4 +94,20 @@ on the normalized graph with respect to the gFD 'Order':'customerID','shipCity',
 
 In the case of the Offshore dataset we performed experiments in a similar fashion and for further details on these experiments we refer to the files in this folder.
 
-In the journal version of our research we performed insertions of new nodes in addition under two scenarios where one time we inserted new nodes with new values to respective equivalence classes and one time new nodes for already existing equivalence classes.
+In the journal version of our research we performed insertions of new nodes in addition under two scenarios where one time we inserted new nodes with new values to respective equivalence classes associated with the dependencies that hold and one time new nodes for already existing equivalence classes.
+
+Here, in the case of the Northwind dataset we inserted new nodes using the Cypher operation
+
+```
+MATCH (c:Customer{customerID: 'SAVEA'}) MERGE (o:Order{orderID: 99999})<-[r:PURCHASED]-(c)
+```
+
+for the insertion of nodes for existing equivalence classes and
+
+```
+MERGE (o:Order{orderID: 99999})<-[r:PURCHASED]-(c:Customer{customerID: 'new', shipCity: 'new', shipName: 'new', shipPostalCode: 99999, shipCountry: 'new', shipAddress: 'new', shipRegion: 'new'})
+```
+
+for the insertion of nodes that are not associated with any existing equivalence class.
+
+In the Offshore dataset we performed experiments in a similar fashion and for further details on this we refer to the files in this folder.
