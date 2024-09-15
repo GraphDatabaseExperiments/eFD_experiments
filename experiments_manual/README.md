@@ -1,4 +1,4 @@
-# Manual to replicate experiments
+# Manual to replicate experiments 
 
 This manual will provide a step by step guide on how to get set up to replicate the experiments discussed in our research.
 
