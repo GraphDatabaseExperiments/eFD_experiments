@@ -53,7 +53,7 @@ The experiments in our research on gFDs/gUCs and graph databse normalization are
 - 3.) [How much inconsistency can gFDs avoid?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/3_How_much_inconsistency_can_gFDs_avoid)
 - 4.) [What does graph normalization look like?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/4_What_does_graph_normalization_look_like)
 - 5.) [How does integrity management improve?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/5_How_does_integrity_management_improve)
-- 6.) [How do aggregate queries improve?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/6_How_do_aggregate_queries_improve)
+- 6.) [How do queries improve?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/6_How_do_queries_improve)
 - 7.) [How do benefits of normalization scale?](https://github.com/GraphDatabaseExperiments/normalization_experiments/tree/main/experiments/7_How_do_benefits_of_normalization_scale)
 
 
